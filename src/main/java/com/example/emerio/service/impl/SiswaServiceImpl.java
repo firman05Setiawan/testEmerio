@@ -27,32 +27,24 @@ public class SiswaServiceImpl implements SiswaService{
 
 	@Override
 	public List<Siswa> getAllSiswa() {
-		Path pathToFile = Paths.get("siswa.csv"); 
-		List<Siswa> listSiswa = new ArrayList<Siswa>();
+//		Path pathToFile = Paths.get("siswa.csv"); 
+//		List<Siswa> listSiswa = new ArrayList<Siswa>();
 		// create an instance of BufferedReader 
 		// using try with resource, Java 7 feature to close resources 
-		try (BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII)) { 
-			String line = br.readLine(); 
-			while (line != null) { 
-				String[] attributes = line.split(","); 
-				String nama = attributes[1]; 
-				String kelas = attributes[2]; 
-				siswaRepository.save( new Siswa(nama, kelas)); 
-				line = br.readLine(); 
-			} 
+//		try (BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII)) { 
+//			String line = br.readLine(); 
+//			while (line != null) { 
+//				String[] attributes = line.split(","); 
+//				String nama = attributes[1]; 
+//				String kelas = attributes[2]; 
+//				siswaRepository.save( new Siswa(nama, kelas)); 
+//				line = br.readLine(); 
+//			} 
 			return siswaRepository.findAll();
-		} catch (IOException ioe) { 
-			ioe.printStackTrace(); 
-		} 
-		return null;
+//		} catch (IOException ioe) { 
+//			ioe.printStackTrace(); 
+//		} 
+//		return null;
 	}
-	
-	
-	public void updateSiswa(String[] metadata) { 
-		
-	}
-
-
-	
 	
 }

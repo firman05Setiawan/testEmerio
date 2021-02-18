@@ -49,9 +49,10 @@ public class RestController {
     }
 	
 	 @DeleteMapping("/delete/{id}")
-	 public Map< String, Boolean > deleteMataPelajaran(@PathVariable(value = "id") Long nomorInduk)
+	 public Map< String, Boolean > deleteMataPelajaran(@PathVariable(value = "id") String nomorInduk)
 	    throws Exception {
-		 Nilai Nilai = nilaiRepository.findById(nomorInduk).orElse(new Nilai());
+		 Long id = Long.parseLong(nomorInduk);
+		 Nilai Nilai = nilaiRepository.findById(id).orElse(new Nilai());
 		 nilaiRepository.delete(Nilai);
 	     Map < String, Boolean > response = new HashMap< > ();
 	     response.put("deleted", Boolean.TRUE);
